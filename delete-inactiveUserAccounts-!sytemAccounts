@@ -22,3 +22,12 @@ foreach ($user in $users) {
         Write-Host "Skipped disabled account: $($user.Name)"
     }
 }
+
+#After that I like to view all the remaining accounts
+
+# Get all local users
+$users = Get-LocalUser
+
+foreach ($user in $users) {
+	Write-Host "Remaining local machines users: $($user.Name)"
+}
