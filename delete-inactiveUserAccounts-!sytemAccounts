@@ -9,7 +9,7 @@ foreach ($user in $users) {
 	
         # Skip system accounts like 'Administrator' or 'Guest'
 		
-        if ($user.Name -ne "Administrator" -and $user.Name -ne "Guest" -and $user.Name -ne "it") {
+        if ($user.Name -ne "Administrator" -and $user.Name -ne "Guest") {
 		
             # Delete the user
 			
