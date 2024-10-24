@@ -1,0 +1,24 @@
+# Get all local users
+$users = Get-LocalUser
+
+foreach ($user in $users) {
+
+    # Check if the user account is enabled
+	
+    if ($user.Enabled -ne $false) {
+	
+        # Skip system accounts like 'Administrator' or 'Guest'
+		
+        if ($user.Name -ne "Administrator" -and $user.Name -ne "Guest" -and $user.Name -ne "it") {
+		
+            # Delete the user
+			
+            Remove-LocalUser -Name $user.Name
+            Write-Host "Deleted user: $($user.Name)"
+        } else {
+            Write-Host "Skipped system account: $($user.Name)"
+        }
+    } else {
+        Write-Host "Skipped disabled account: $($user.Name)"
+    }
+}
